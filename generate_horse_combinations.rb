@@ -1,9 +1,15 @@
-puts "\nPlease enter names separated by commas (ex. Glass,Special,El)"
-names_input = gets.chomp
-names_array = names_input.split(",").uniq
+def main
+  puts "\nPlease enter names separated by commas (ex. Glass, Special, El)"
+  input_names = gets.chomp
+  unique_names = input_names.split(",").uniq
 
-puts "\nCombinations are as follows (Combination of 2 names, without duplication, unordered)"
+  puts "\nCombinations are as follows (Combination of 2 names, without duplication, unordered):"
 
-names_array.combination(2).with_index(1) do |name, index_number|
-  puts "#{index_number} : #{name.join(",")}"
+  unique_names.combination(2).each_with_index do |name, index|
+    puts "#{index + 1} : #{name.join(",")}"
+  end
+end
+
+if __FILE__ == $0
+  main
 end
